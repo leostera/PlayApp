@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface PAProfilePictureView : UIImageView
+@interface PAProfilePictureView : FBProfilePictureView
 
 @property (nonatomic) float radius;
+
+- (void)clip;
 
 @end

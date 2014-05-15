@@ -7,24 +7,29 @@
 //
 
 #import "PAWelcomeController.h"
+#import "PASignUpController.h"
 #import <FacebookSDK/FacebookSDK.h>
 
-@implementation PAWelcomeController
+@implementation PAWelcomeController {
+    id<FBGraphUser> user;
+}
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }
 
--(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
-    // create global user object with this data
-    NSLog(@"usr_id::%@",user.id);
-    NSLog(@"usr_first_name::%@",user.first_name);
-    NSLog(@"usr_middle_name::%@",user.middle_name);
-    NSLog(@"usr_last_name::%@",user.last_name);
-    NSLog(@"usr_username::%@",user.username);
-    NSLog(@"usr_b_day::%@",user.birthday);
-    
-    // go to the sign-up view
+-(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)fbUser{
+    self->user = fbUser;
+    [self performSegueWithIdentifier:@"showSignUp" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    PASignUpController *signUpVC = segue.destinationViewController;
+    signUpVC.user = self->user;
+}
+
+- (IBAction)showSignUp:(UIStoryboardSegue *)segue{
+    // This method exists in order to create an unwind segue to this controller.
 }
 
 @end

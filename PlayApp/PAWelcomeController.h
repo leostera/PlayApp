@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface PAWelcomeController : UIViewController
 
+- (IBAction)showSignUp:(UIStoryboardSegue *)segue;
 
 @end

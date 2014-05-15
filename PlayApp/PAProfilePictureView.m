@@ -12,11 +12,13 @@
 
 - (id) init {
     self = [super init];
-    if (self) {
-        self.layer.cornerRadius = 5.0f;
-        self.clipsToBounds = YES;
-    }
     return self;
+}
+
+- (void) clip {
+    self.layer.cornerRadius = 5.0f;
+    self.clipsToBounds = YES;
+    NSLog(@"Clippin");
 }
 
 @end

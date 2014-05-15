@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface PAEvent : NSObject
-@property (strong, nonatomic) NSString* name;
-@property (strong, nonatomic) NSURL*    image;
+
+@property (strong, nonatomic) NSString  *name;
+@property (strong, nonatomic) NSURL     *image;
+
 @end

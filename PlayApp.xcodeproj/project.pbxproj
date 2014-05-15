@@ -19,7 +19,6 @@
 		C72B003B191FC63100BF7A5A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72B001D191FC63000BF7A5A /* UIKit.framework */; };
 		C72B0043191FC63100BF7A5A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C72B0041191FC63100BF7A5A /* InfoPlist.strings */; };
 		C72B0045191FC63100BF7A5A /* PlayAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C72B0044191FC63100BF7A5A /* PlayAppTests.m */; };
-		C72B0050191FCC2400BF7A5A /* PAEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = C72B004F191FCC2400BF7A5A /* PAEvent.m */; };
 		C72B0055191FD20800BF7A5A /* PAEventsController.m in Sources */ = {isa = PBXBuildFile; fileRef = C72B0054191FD20800BF7A5A /* PAEventsController.m */; };
 		C72B005A191FD50600BF7A5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72B0059191FD50600BF7A5A /* Main.storyboard */; };
 		C79DFA98191FE2F100C246DA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79DFA97191FE2F100C246DA /* FacebookSDK.framework */; };
@@ -28,6 +27,7 @@
 		C79DFAA2191FFABE00C246DA /* PASignUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = C79DFAA1191FFABE00C246DA /* PASignUpController.m */; };
 		C79DFAA5191FFE2400C246DA /* PAProfilePictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = C79DFAA4191FFE2400C246DA /* PAProfilePictureView.m */; };
 		C79DFAA8192000EC00C246DA /* PAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = C79DFAA7192000EC00C246DA /* PAUser.m */; };
+		C79DFAAB192021F000C246DA /* PAEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = C79DFAAA192021F000C246DA /* PAEvent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,6 @@
 		C72B0040191FC63100BF7A5A /* PlayAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlayAppTests-Info.plist"; sourceTree = "<group>"; };
 		C72B0042191FC63100BF7A5A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C72B0044191FC63100BF7A5A /* PlayAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayAppTests.m; sourceTree = "<group>"; };
-		C72B004E191FCC2400BF7A5A /* PAEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PAEvent.h; path = ../PAEvent.h; sourceTree = "<group>"; };
-		C72B004F191FCC2400BF7A5A /* PAEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PAEvent.m; path = ../PAEvent.m; sourceTree = "<group>"; };
 		C72B0053191FD20800BF7A5A /* PAEventsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAEventsController.h; sourceTree = "<group>"; };
 		C72B0054191FD20800BF7A5A /* PAEventsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAEventsController.m; sourceTree = "<group>"; };
 		C72B0059191FD50600BF7A5A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +71,8 @@
 		C79DFAA4191FFE2400C246DA /* PAProfilePictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAProfilePictureView.m; sourceTree = "<group>"; };
 		C79DFAA6192000EC00C246DA /* PAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAUser.h; sourceTree = "<group>"; };
 		C79DFAA7192000EC00C246DA /* PAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAUser.m; sourceTree = "<group>"; };
+		C79DFAA9192021F000C246DA /* PAEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAEvent.h; sourceTree = "<group>"; };
+		C79DFAAA192021F000C246DA /* PAEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAEvent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,10 +178,10 @@
 		C72B0051191FCC6F00BF7A5A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C79DFAA9192021F000C246DA /* PAEvent.h */,
+				C79DFAAA192021F000C246DA /* PAEvent.m */,
 				C79DFAA6192000EC00C246DA /* PAUser.h */,
 				C79DFAA7192000EC00C246DA /* PAUser.m */,
-				C72B004E191FCC2400BF7A5A /* PAEvent.h */,
-				C72B004F191FCC2400BF7A5A /* PAEvent.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -308,12 +308,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C72B002A191FC63000BF7A5A /* AppDelegate.m in Sources */,
+				C79DFAAB192021F000C246DA /* PAEvent.m in Sources */,
 				C79DFA9B191FEB5A00C246DA /* PAWelcomeController.m in Sources */,
 				C79DFAA5191FFE2400C246DA /* PAProfilePictureView.m in Sources */,
 				C79DFAA2191FFABE00C246DA /* PASignUpController.m in Sources */,
 				C72B0026191FC63000BF7A5A /* main.m in Sources */,
 				C79DFA9F191FEF3E00C246DA /* PALoginView.m in Sources */,
-				C72B0050191FCC2400BF7A5A /* PAEvent.m in Sources */,
 				C79DFAA8192000EC00C246DA /* PAUser.m in Sources */,
 				C72B0055191FD20800BF7A5A /* PAEventsController.m in Sources */,
 			);
@@ -441,7 +441,7 @@
 				INFOPLIST_FILE = "PlayApp/PlayApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -460,7 +460,7 @@
 				INFOPLIST_FILE = "PlayApp/PlayApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
