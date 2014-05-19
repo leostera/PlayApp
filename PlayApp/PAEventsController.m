@@ -43,11 +43,36 @@
 {
     [super viewDidLoad];
     
+    NSError* error = nil;
+    
+    NSDictionary *dict = @{
+        @"auth_token" : [[[FBSession activeSession] accessTokenData] accessToken]
+    };
+    
+    NSData* data = [NSKeyedArchiver archivedDataWithRootObject:dict];
+    
+    NSString* urlString = @"http://192.168.1.101:3000/users";
+    NSString* jsonString = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    //NSString* UUID = [[NSUUID UUID] UUIDString];
+    NSData* responseData = nil;
+    NSURL *url=[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    responseData = [NSMutableData data] ;
+    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url];
+    NSString *bodydata=[NSString stringWithFormat:@"data=%@",jsonString];
+    
+    [request setHTTPMethod:@"POST"];
+    NSData *req=[NSData dataWithBytes:[bodydata UTF8String] length:[bodydata length]];
+    [request setHTTPBody:req];
+    NSURLResponse* response;
+
+    responseData = [NSURLConnection sendSynchronousRequest:request     returningResponse:&response error:&error];
+    NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"the final output is:%@",responseString);
+    
     NSURL *eventsURL = [NSURL URLWithString:@"http://playdoh.herokuapp.com/api/events.json"];
     
     NSData *jsonData = [NSData dataWithContentsOfURL:eventsURL];
-    
-    NSError *error = nil;
     
     NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
     

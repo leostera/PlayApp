@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PlayApp/PASignUpController.m"
-            timestampString = "422161366.968957"
+            timestampString = "422166119.280813"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "-handleStart:"
             landmarkType = "5">
          </BreakpointContent>

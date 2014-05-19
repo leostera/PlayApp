@@ -7,11 +7,13 @@
 //
 
 #import "PASignUpController.h"
+#import "PAUser.h"
 #import <Foundation/Foundation.h>
 #import <FacebookSDK/FacebookSDK.h>
 
 @implementation PASignUpController {
-    id<FBGraphUser>   user;
+    PAUser            *user;
+    id<FBGraphUser>   fbUser;
     CLLocationManager *locationManager;
 }
 
@@ -30,10 +32,10 @@
 
 - (void)viewDidLoad {
     // Set the username
-    [self.username setText:[NSString stringWithFormat:@"%@ %@", [user first_name], [user last_name]]];
+    [self.username setText:[NSString stringWithFormat:@"%@ %@", [fbUser first_name], [fbUser last_name]]];
 
     // Set the picture
-    self.userImage.profileID = [user id];
+    self.userImage.profileID = [fbUser id];
     [self.userImage clip];
 
     // Get location
@@ -42,10 +44,12 @@
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager startUpdatingLocation];
+    
+    [user registerUser];
 }
 
-- (void)setUser:(id<FBGraphUser>)fbUser {
-    user = fbUser;
+- (void)setUser:(id<FBGraphUser>)fbRawUser {
+    fbUser = fbRawUser;
 }
 
 - (IBAction)handleStart:(id)sender {

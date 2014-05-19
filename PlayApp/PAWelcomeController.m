@@ -44,8 +44,6 @@
     if ([[segue identifier]isEqualToString:@"showSignUp"]) {
         PASignUpController *signUpVC = segue.destinationViewController;
         [signUpVC setUser:user];
-    } else {
-
     }
 }
 
