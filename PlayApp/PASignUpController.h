@@ -10,12 +10,15 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "PAProfilePictureView.h"
 
-@interface PASignUpController : UIViewController
+@interface PASignUpController : UIViewController <CLLocationManagerDelegate>
 
-@property id<FBGraphUser> user;
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UILabel *currentLocation;
 @property (weak, nonatomic) IBOutlet PAProfilePictureView *userImage;
-- (IBAction)goToTable:(id)sender;
+
+- (void)setUser:(id<FBGraphUser>)user;
+
+- (IBAction)handleStart:(id)sender;
+- (IBAction)goToTable:(UIStoryboardSegue *)segue;
 
 @end

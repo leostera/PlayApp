@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) NSDictionary* rawData;
 
+- (BOOL) registerUser:(NSString*) token;
+
 @end

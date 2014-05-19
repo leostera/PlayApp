@@ -7,28 +7,55 @@
 //
 
 #import "PASignUpController.h"
+#import <Foundation/Foundation.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-@implementation PASignUpController
+@implementation PASignUpController {
+    id<FBGraphUser>   user;
+    CLLocationManager *locationManager;
+}
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    [locationManager stopUpdatingLocation];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init] ;
+    [geocoder reverseGeocodeLocation:[locations objectAtIndex:0] completionHandler:^(NSArray *placemarks, NSError *error)
+     {
+         if (!(error))
+         {
+             CLPlacemark *placemark = [placemarks objectAtIndex:0];
+             [self.currentLocation setText:[NSString stringWithFormat:@"%@", placemark.locality]];
+         }
+     }];
 }
 
 - (void)viewDidLoad {
     // Set the username
-    [self.username setText:[NSString stringWithFormat:@"%@ %@", [self.user first_name], [self.user last_name]]];
-    
+    [self.username setText:[NSString stringWithFormat:@"%@ %@", [user first_name], [user last_name]]];
+
     // Set the picture
-    self.userImage.profileID = [self.user id];
+    self.userImage.profileID = [user id];
     [self.userImage clip];
-    
-    // Set location
-    // self.location
+
+    // Get location
+    locationManager = [CLLocationManager new];
+    locationManager.delegate = self;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
 }
 
-- (IBAction)goToTable:(id)sender {
+- (void)setUser:(id<FBGraphUser>)fbUser {
+    user = fbUser;
+}
+
+- (IBAction)handleStart:(id)sender {
+    // set marker for first time
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstStart"];
     [self performSegueWithIdentifier:@"goToTable" sender:nil];
+}
+
+- (IBAction)goToTable:(UIStoryboardSegue *)segue {
+    
 }
 
 @end

@@ -12,5 +12,6 @@
 @interface PAWelcomeController : UIViewController
 
 - (IBAction)showSignUp:(UIStoryboardSegue *)segue;
+- (IBAction)goToTable:(UIStoryboardSegue *)segue;
 
 @end

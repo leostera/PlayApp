@@ -7,7 +7,6 @@
         <!--Welcome Controller - Welcome-->
         <scene sceneID="Cko-8i-JnV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iPx-j5-6BV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Welcome" id="ndl-cb-ZzU" customClass="PAWelcomeController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uob-FB-bcV"/>
@@ -35,16 +34,17 @@
                     <navigationItem key="navigationItem" id="qWP-IO-uz2"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <segue destination="AhB-Mu-dxR" kind="push" identifier="showSignUp" id="fc1-kK-Wgs"/>
+                        <segue destination="AhB-Mu-dxR" kind="push" identifier="showSignUp" id="eoP-gN-dTq"/>
+                        <segue destination="9Zt-US-gAD" kind="push" identifier="goToTable" id="NyM-Tb-JcE"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iPx-j5-6BV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-589" y="-11"/>
+            <point key="canvasLocation" x="-629" y="-577"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="guu-hq-wNQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xJJ-By-jCU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="UUQ-fH-6sn" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vke-Pe-qP3">
                         <autoresizingMask key="autoresizingMask"/>
@@ -57,6 +57,7 @@
                         <segue destination="ndl-cb-ZzU" kind="relationship" relationship="rootViewController" id="e6O-a5-HPF"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xJJ-By-jCU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1142" y="-11"/>
         </scene>
@@ -131,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ln-iM-3nv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-64" y="-11"/>
+            <point key="canvasLocation" x="-234" y="229"/>
         </scene>
         <!--Events Controller-->
         <scene sceneID="ys7-Wy-FgR">
@@ -192,4 +193,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="NyM-Tb-JcE"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -10,4 +10,9 @@
 
 @implementation PAUser
 
+
+- (BOOL) registerUser:(NSString*) token {
+    return YES;
+}
+
 @end
